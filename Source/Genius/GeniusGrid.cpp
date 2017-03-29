@@ -21,22 +21,22 @@ AGeniusGrid::AGeniusGrid()
 	Root = CreateDefaultSubobject<USceneComponent>(TEXT("Root"));
 	RootComponent = Root;
 
-	ConstructorHelpers::FObjectFinder<UBlueprint> RedBP(TEXT("Blueprint'/Game/Blueprints/GeniusColorRed.GeniusColorRed'"));
-	ConstructorHelpers::FObjectFinder<UBlueprint> BlueBP(TEXT("Blueprint'/Game/Blueprints/GeniusColorBlue.GeniusColorBlue'"));
-	ConstructorHelpers::FObjectFinder<UBlueprint> GreenBP(TEXT("Blueprint'/Game/Blueprints/GeniusColorGreen.GeniusColorGreen'"));
-	ConstructorHelpers::FObjectFinder<UBlueprint> YellowBP(TEXT("Blueprint'/Game/Blueprints/GeniusColorYellow.GeniusColorYellow'"));
+	ConstructorHelpers::FObjectFinder<UClass> RedBP(TEXT("Blueprint'/Game/Blueprints/GeniusColorRed.GeniusColorRed_C'"));
+	ConstructorHelpers::FObjectFinder<UClass> BlueBP(TEXT("Blueprint'/Game/Blueprints/GeniusColorBlue.GeniusColorBlue_C'"));
+	ConstructorHelpers::FObjectFinder<UClass> GreenBP(TEXT("Blueprint'/Game/Blueprints/GeniusColorGreen.GeniusColorGreen_C'"));
+	ConstructorHelpers::FObjectFinder<UClass> YellowBP(TEXT("Blueprint'/Game/Blueprints/GeniusColorYellow.GeniusColorYellow_C'"));
 
 	if (RedBP.Succeeded()) {
-		Red = Cast<UClass>(RedBP.Object->GeneratedClass);
+		Red = Cast<UClass>(RedBP.Object);
 	}
 	if (BlueBP.Succeeded()) {
-		Blue = Cast<UClass>(BlueBP.Object->GeneratedClass);
+		Blue = Cast<UClass>(BlueBP.Object);
 	}
 	if (GreenBP.Succeeded()) {
-		Green = Cast<UClass>(GreenBP.Object->GeneratedClass);
+		Green = Cast<UClass>(GreenBP.Object);
 	}
 	if (YellowBP.Succeeded()) {
-		Yellow = Cast<UClass>(YellowBP.Object->GeneratedClass);
+		Yellow = Cast<UClass>(YellowBP.Object);
 	}
 
 	ConstructorHelpers::FClassFinder<UUserWidget> Widget
